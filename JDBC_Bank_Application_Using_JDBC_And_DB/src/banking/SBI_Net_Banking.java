@@ -262,6 +262,7 @@ public class SBI_Net_Banking {
 							switch(choice) {
 							case 1:
 								System.out.println("Enter your full Name : ");
+								sc.nextLine();	
 								String n = sc.nextLine();
 		
 								System.out.println("Enter the Account Number : ");
