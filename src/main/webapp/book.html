@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Book Entry</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>SAIBOOKS - Enter Book Details</h1>
+    </header>
+    <div class="container">
+        <form action="add" method="post">
+            <h2>Add a New Book</h2>
+            <label for="bcode">Book Code:</label>
+            <input type="text" name="bcode" required>
+            <label for="bname">Book Name:</label>
+            <input type="text" name="bname" required>
+            <label for="bauthor">Book Author:</label>
+            <input type="text" name="bauthor" required>
+            <label for="bprice">Book Price:</label>
+            <input type="text" name="bprice" required>
+            <label for="bqty">Book Quantity:</label>
+            <input type="text" name="bqty" required>
+            <input type="submit" value="Add Book">
+        </form>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
