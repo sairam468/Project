@@ -31,15 +31,15 @@ public class DeleteBookServlet extends HttpServlet {
 			while(i.hasNext()) {
 				BookBean bb=(BookBean)i.next();
 				if(bCode.equals(bb.getCode())) {
-					int k=new DeleteBookDAO().delete(bb);
+					int k=new DeleteBookDAO().delete(bCode);
 					System.out.println(k);
 					if(k>0) {
-						al.remove(bb);
+						i.remove();
 						hs.removeAttribute("al");
 						hs.setAttribute("al", al);
 						req.setAttribute("msg", "Book Deleted Sucessfully...<br>");
 						req.getRequestDispatcher("UpdateBook.jsp").forward(req, res);
-
+					
 					}
 					else {
 						req.setAttribute("msg", "An Error Occured ...<br>");

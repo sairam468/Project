@@ -18,7 +18,7 @@ public class AddBookDAO {
 			ps.setFloat(4, b.getPrice());
 			ps.setInt(5,b.getQty());
 			
-			int k=ps.executeUpdate();
+			k=ps.executeUpdate();
 		}
 		catch(Exception e) {e.printStackTrace();}	
 		return k;

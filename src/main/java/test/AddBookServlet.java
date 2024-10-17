@@ -34,6 +34,10 @@ public class AddBookServlet extends HttpServlet {
 				req.getRequestDispatcher("UpdateBook.jsp").forward(req, res);
 				
 			}
+			else {
+				req.setAttribute("msg", "Error occured...<br>");
+				req.getRequestDispatcher("Msg.jsp").forward(req, res);
+			}
 		}
 
 	}

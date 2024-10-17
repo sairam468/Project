@@ -7,12 +7,12 @@ public class DeleteBookDAO {
 
 	public int k=0;
 	
-	public int delete(BookBean bb) {
+	public int delete(String bc) {
 		try {
 			Connection con=DBConnection.getConnection();
 			PreparedStatement ps=con.prepareStatement("DELETE FROM book64 where bcode=?");
             
-			ps.setString(1, bb.getCode());
+			ps.setString(1, bc);
 			k=ps.executeUpdate();	
 		}
 		catch(Exception e) {e.printStackTrace();}
