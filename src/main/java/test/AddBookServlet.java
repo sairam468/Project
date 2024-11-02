@@ -1,6 +1,7 @@
 package test;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -13,10 +14,10 @@ import jakarta.servlet.http.HttpSession;
 public class AddBookServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-
+		
 		HttpSession hs=req.getSession(false);
 		if(hs==null) {
-			req.setAttribute("msg", "Session Expired...<br>");
+			req.setAttribute("msg","<h3 style='color: red;'>Session Expired...</h3><br>");
 			req.getRequestDispatcher("Msg.jsp").forward(req, res);
 		}
 		else {
@@ -30,13 +31,16 @@ public class AddBookServlet extends HttpServlet {
 			int k=new AddBookDAO().AddBook(bb);
 
 			if(k>0) {
-				req.setAttribute("msg","BookDetails Added Sucessfully...<br>");
-				req.getRequestDispatcher("UpdateBook.jsp").forward(req, res);
-				
-			}
+				ArrayList<BookBean> al=(ArrayList<BookBean>)hs.getAttribute("al");
+				al.add(bb);
+				hs.setAttribute("al", al);
+				req.setAttribute("msg","<h3 style='color: green;'>BookDetails Added Sucessfully...</h3><br>" );
+				req.getRequestDispatcher("ViewBooks.jsp").forward(req, res);
+							}
 			else {
-				req.setAttribute("msg", "Error occured...<br>");
+				req.setAttribute("msg","<h3 style='color: red;'>Error Adding book details...</h3><br>");
 				req.getRequestDispatcher("Msg.jsp").forward(req, res);
+				
 			}
 		}
 

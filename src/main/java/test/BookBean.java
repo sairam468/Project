@@ -11,7 +11,7 @@ public class BookBean implements Serializable{
 	private Integer qty;
 	
 	public String getCode() {
-		return code;
+		return code.trim();
 	}
 	public void setCode(String code) {
 		this.code = code;
@@ -20,13 +20,13 @@ public class BookBean implements Serializable{
 		return name;
 	}
 	public void setName(String name) {
-		this.name = name;
+		this.name = name.trim();
 	}
 	public String getAuthor() {
 		return author;
 	}
 	public void setAuthor(String author) {
-		this.author = author;
+		this.author = author.trim();
 	}
 	public Float getPrice() {
 		return price;

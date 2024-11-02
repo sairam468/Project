@@ -8,6 +8,7 @@ public class AdminBean implements Serializable {
 	
 	private String uName,pWord,fName,lName,addr,mID;
 	private Long phNo;
+	
 	public String getuName() {
 		return uName;
 	}

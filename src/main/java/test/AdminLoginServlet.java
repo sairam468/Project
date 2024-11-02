@@ -19,7 +19,7 @@ public class AdminLoginServlet extends HttpServlet {
 		AdminBean ab=new AdminLoginDAO().Login(req.getParameter("uname"), req.getParameter("pword"));
 		
 		if(ab==null) {
-			req.setAttribute("msg", "Invalid Login Process...<br>");
+			req.setAttribute(	"msg","<h3 style='color: red;'>Invalid Admin details...</h3><br>");
 			req.getRequestDispatcher("Msg.jsp").forward(req, res);
 		}
 		else {
@@ -28,7 +28,5 @@ public class AdminLoginServlet extends HttpServlet {
 			req.getRequestDispatcher("AdminLogin.jsp").forward(req, res);
 			
 		}
-		
-	}
-
+			}
 }

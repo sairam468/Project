@@ -3,12 +3,14 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Add Book</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Add Book - SAIBOOKS</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="icon" href="images/logo.png" type="image/png">
 </head>
 <body>
     <header>
-        <h1>SAIBOOKS - Add Book</h1>
+        <img src="images/logo.png" alt="SAIBOOKS Logo" class="logo">
+        <h1>SAIBOOKS</h1>
     </header>
     <div class="container">
         <nav>
@@ -39,4 +41,5 @@
         </form>
     </div>
 </body>
+<script src="script.js"></script>
 </html>

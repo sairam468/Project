@@ -1,21 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Message</title>
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="icon" href="images/logo.png" type="image/png">
 </head>
 <body>
-    <header>
-        <h1>SAIBOOKS - Message</h1>
-    </header>
-    <div class="container">
+
+    <!-- Display the logout message here -->
+    <div class="message">
         <%
             String msg = (String) request.getAttribute("msg");
-            out.println("<div>" + msg + "</div>");
+            if (msg != null) {
+                out.println("<p>" + msg + "</p>");
+            }
         %>
-        <%@ include file="home.html" %>
     </div>
+
+    <%@ include file="home.html"%>
+
 </body>
 </html>

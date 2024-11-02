@@ -1,23 +1,24 @@
-
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import ="test.*,java.util.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" import="test.*, java.util.*" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>View Books</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="icon" href="images/logo.png" type="image/png">
 </head>
 <body>
     <header>
-        <h1>SAIBOOKS - View Books</h1>
+    <img src="images/logo.png" alt="SAIBOOKS Logo" class="logo">
+        <h1>SAIBOOKS</h1>
     </header>
     <div class="container">
+            <h2>View Books</h2>
         <nav>
-            <a href="book.html">Add Book</a>
             <a href="AdminLogin.jsp">Back</a>
             <a href="logout">Logout</a>
         </nav>
-        <h2>Book List</h2>
+        <h2>Available Books</h2>
         <table>
             <tr>
                 <th>Book Code</th>
@@ -28,10 +29,13 @@
                 <th>Action</th>
             </tr>
             <%
-            ArrayList al=(ArrayList)session.getAttribute("al");
-            Iterator<BookBean> i=al.iterator();
-        	while(i.hasNext()){
-        		BookBean bb=(BookBean)i.next();
+            String msg = (String) request.getAttribute("msg");
+            if (msg != null) {
+                out.print(msg);
+            }
+                ArrayList<BookBean> al = (ArrayList<BookBean>) session.getAttribute("al");
+                if (al != null && !al.isEmpty()) {
+                    for (BookBean bb : al) {
             %>
             <tr>
                 <td><%= bb.getCode() %></td>
@@ -39,14 +43,19 @@
                 <td><%= bb.getAuthor() %></td>
                 <td><%= bb.getPrice() %></td>
                 <td><%= bb.getQty() %></td>
-                <td><a href="edit?bcode=<%= bb.getCode() %>">Edit</a></td>
-                <td><a href="delete?bcode=<%= bb.getCode() %>">Delete</a></td>
+                <td>
+                    <a href="edit?bcode=<%= bb.getCode() %>">Update</a><br>
+                                          (or)<br>
+                    <a href="delete?bcode=<%= bb.getCode() %>">Delete</a>
+                </td>
             </tr>
             <%
+                    }
+                } else {
+                    out.println("<tr><td colspan='6'>No books available.</td></tr>");
                 }
             %>
         </table>
     </div>
 </body>
 </html>
-
