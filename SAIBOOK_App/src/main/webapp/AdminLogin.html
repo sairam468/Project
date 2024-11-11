@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - SAIBOOKS</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="icon" href="images/logo.png" type="image/png">
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="SAIBOOKS Logo" class="logo">
+        <h1>SAIBOOKS</h1>
+    </header>
+    <div class="container">
+        <h2>Admin Login</h2>
+        <form action="admin" method="post">
+            <label for="uname">Username:</label>
+            <input type="text" id="uname" name="uname" placeholder="Enter your username" required><br>
+            <label for="pword">Password:</label>
+            <input type="password" id="pword" name="pword" placeholder="Enter your password" required><br>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2024 Admin Portal. All rights reserved.</p>
+    </footer>
+</body>
+<script src="adminLogin.js"></script>
+</html>
